@@ -1,7 +1,5 @@
 class Api::V1::MoviesController < ApplicationController
 
-    has_many :reviews
-
     before_action :set_movie, only: [:show, :update, :destroy]
     skip_before_action :authenticate, only: [:index, :show]
 
