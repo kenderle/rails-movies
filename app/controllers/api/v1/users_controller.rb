@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class API::V1::UsersController < ApplicationController
 
     skip_before_action :authenticate, only: [:login, :create]
 

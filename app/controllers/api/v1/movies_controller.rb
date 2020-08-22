@@ -1,4 +1,4 @@
-class Api::V1::MoviesController < ApplicationController
+class API::V1::MoviesController < ApplicationController
 
     before_action :set_movie, only: [:show, :update, :destroy]
     skip_before_action :authenticate, only: [:index, :show]
@@ -9,7 +9,7 @@ class Api::V1::MoviesController < ApplicationController
         render json: @movies
     end
 
-    # Get specific movie
+    # Get specific movie with its reviews
     def show
         @reviews = Review.where(movie_id: params[:id])
         render json: { movie: @movie, reviews: @reviews }
