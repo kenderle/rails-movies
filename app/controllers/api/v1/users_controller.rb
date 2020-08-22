@@ -1,5 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
+    has_many :reviews
+
     skip_before_action :authenticate, only: [:login, :create]
 
     def login
