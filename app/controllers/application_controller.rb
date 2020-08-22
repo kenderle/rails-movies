@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Api
     include ActionController::HttpAuthentication::Token::ControllerMethods
     before_action :authenticate
     # Define our authenticate
