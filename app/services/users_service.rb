@@ -1,13 +1,13 @@
 class UsersService
 
     def self.login(email, password)
-        return false unless user=user.find_by(email: email).try(:authenticate, password)
+        return false unless user = User.find_by(email: email).try(:authenticate, password)
         user.generate_token!
         user
     end
 
     def self.register(email, first_name, last_name, username, password, password_confirmation)
-        user=User.new({
+        user = User.new({
                             email: email,
                             first_name: first_name,
                             last_name: last_name,
