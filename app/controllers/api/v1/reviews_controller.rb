@@ -22,7 +22,7 @@ class API::V1::ReviewsController < ApplicationController
 
     def update
         if @review.update(review_params)
-        render :json @review
+        render json: @review
         else
         render json: @review.errors, status: :unprocessable_entity
         end
