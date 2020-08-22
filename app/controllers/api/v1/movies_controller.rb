@@ -11,7 +11,8 @@ class API::V1::MoviesController < ApplicationController
 
     # Get specific movie
     def show
-        render json: { movie: @movie }
+        @reviews = Review.where(movie_id: params[:id])
+        render json: { movie: @movie, reviews: @reviews }
 
     end
 
@@ -37,6 +38,13 @@ class API::V1::MoviesController < ApplicationController
     # Delete movie
     def destroy 
         @movie.destroy
+    end
+
+    # Get our Amazon S3 keys for image uploads
+    def get_upload_credentials
+        @accessKey = ENV['S3_ACCESS']
+        @secretKey = ENV['S3_SECRET']
+        render json: { accessKey: @accessKey, secretKey: @secretKey }
     end
 
     private
