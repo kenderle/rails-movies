@@ -1,4 +1,4 @@
-class API::V1::ReviewsController < ApplicationController
+class Api::V1::ReviewsController < ApplicationController
     belongs_to :movie
     belongs_to :user
 
